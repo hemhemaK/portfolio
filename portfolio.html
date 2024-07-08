@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio.HEMA</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Lato", "Avenir Next", Arial, sans-serif;
+            margin: 0;
+            background: #000;
+            background-size: cover;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 340%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 50%;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin: 180px;
+            left: 30%;
+            background: rgba(62, 71, 63, 0.5);
+        }
+
+        .overlay h3 {
+            text-align: justify;
+        }
+
+        header {
+            position: absolute;
+            width: 100%;
+            text-align: left;
+            color: white;
+            padding: 0.5em;
+            margin: 25px;
+            margin-left: 60px;
+        }
+
+        .topnav {
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            margin-left: 2%;
+        }
+
+        .topnav a:hover {
+            background: rgba(62, 71, 63, 0.5);
+            color: aqua;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .topnav img {
+            width: 30px; 
+            height: auto;
+            top: 20px;
+            margin: 0px;
+        }
+        img {
+            position: absolute;
+            width: 25%;
+            height: 80%;
+            transition: .4s;
+            margin-left: 100px;
+            margin-top: 125px;
+            border-radius: 5%;
+        }
+
+        button {
+            background-color: blanchedalmond;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: medium;
+        }
+
+        button:hover {
+            background-color: aqua;
+        }
+        .overlayaboutme {
+            position: absolute;
+            width: 86%;
+            height:auto;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin: 0px;
+            text-align: center;
+            top:700px;
+            left:8%;
+            background: rgba(62, 71, 63, 0.5);
+        }
+
+        .overlayaboutme h3 {
+            text-align: justify;
+        }
+        .contact {
+            position: absolute;
+            width: 100%;
+            height:auto;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin:0px;
+            text-align: left;
+            top:1550px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .skills {
+            position: absolute;
+            width: 100%;
+            height:auto;
+            color: rgb(101, 198, 243);
+            transition: .4s;
+            padding: 0.2em;
+            margin: 0px;
+            text-align:center;
+            top:350px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .project{
+            position: absolute;
+            width: 100%;
+            height:auto;
+            color: rgb(247, 141, 4);
+            transition: .4s;
+            padding: 0.2em;
+            margin:0px;
+            text-align: center;
+            top:900px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .project1 {
+            position: absolute;
+            width: 105% auto;
+            height:auto;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin:0px;
+            text-align: justify;
+            top:1000px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .project1:hover{
+          background-color:rgba(196, 202, 197, 0.596) ;
+        } 
+         .project2 {
+            position: absolute;
+            width: 105% auto;
+            height:auto;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin:0px;
+            text-align: justify;
+            top:1150px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .project2:hover{
+          background-color:rgba(196, 202, 197, 0.596) ;
+        } 
+        .project3 {
+            position: absolute;
+            width: 105% auto;
+            height:auto;
+            color: white;
+            transition: .4s;
+            padding: 0.6em;
+            margin:0px;
+            text-align: justify;
+            top:1300px;
+            left:5px;
+            background: rgba(62, 71, 63, 0.5);
+        }
+        .project3:hover{
+          background-color:rgba(196, 202, 197, 0.596) ;
+        } 
+        /* Media Queries for Mobile Screens */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden; /* Prevent horizontal scrolling */
+            }
+
+            header {
+                position: relative;
+                margin: 0;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .overlay {
+                position: relative;
+                width: 86%;
+                margin: auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+                text-align: left;
+            }
+
+            .overlay h3 {
+                text-align: justify;
+            }
+
+            video {
+                height: 450%;
+            }
+
+            img {
+                position: relative;
+                width: 60%; /* Reduced size for mobile screens */
+                height: auto;
+                margin: 20px auto;
+                display: flex;
+                border-radius: 10%;
+            }
+
+            .topnav {
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+            }
+
+            .topnav a {
+                margin: 5px;
+                padding: 0 8px;
+            }
+
+            .topnav img {
+                width: 20px; /* Adjust size for mobile screens */        
+                top:0px;/* Remove left margin for mobile screens */
+            }
+            .overlayaboutme {
+                position: relative;
+                width:70% auto;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+                text-align: left;
+                top:10%;
+				height:410px;;
+            }
+
+            .overlayaboutme h3 {
+                text-align: justify;
+            }
+             .skills {
+                position: relative;
+                width:auto;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.1em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:10px;
+            }
+
+            .contact {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:2000px;
+            }
+
+            .project {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:1200px;
+            }
+
+            .project1 {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:1205px;
+            }
+
+            .project2 {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:1205px;
+            }
+
+            .project3 {
+                position: relative;
+                width: 90%;
+                margin: 20px auto;
+                left: 0;
+                padding: 0.5em;
+                font-size: smaller;
+                background: rgba(62, 71, 63, 0.8); /* Make background more visible */
+				top:1205px;
+            }
+        .container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          
+        }
+
+        .panel {
+            height: 270px;
+            width: 190px;
+            position: relative;
+            margin-top:30%;
+        }
+
+        .panel:hover .card {
+            filter: blur(1.5px);
+        }
+        .panel:hover .card1 {
+            background-size: 215% 135%;
+        }
+        .panel:hover .card2 {
+            background-size: 115% 115%;
+        }
+        .panel:hover .card3 {
+            background-size: 155% 115%;
+        } 
+        .panel:hover .card4 {
+            background-size: 155% 115%;
+        }
+        .panel:hover .title {
+            color: rgba(255, 255, 255, 0.2);
+        }
+        .panel:hover .border {
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+        .panel:hover .slide {
+            bottom: 0px;
+        }
+        .panel:hover .ring:before,
+        .panel:hover .ring:after {
+            transform: translateX(-50%) translateY(-50%) rotate(310deg);
+        }
+
+        .ring,
+        .card,
+        .border,
+        .slide,
+        .line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ring {
+            color: #fffbf1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 170px;
+        }
+
+        .card {
+            background: #f0ead6;
+            position: relative;
+            transition: all 1s;
+            height: 270px;
+            width: 190px;
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+
+        .card1 {
+            background-image: url("https://assets.codepen.io/489403/brazil.jpg");
+            background-repeat: no-repeat;
+            background-size: 200% 120%;
+        }
+
+        .card2 {
+            background-image: url("https://assets.codepen.io/489403/belize.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .card3 {
+            background-image: url("https://assets.codepen.io/489403/egypt.jpg");
+            background-repeat: no-repeat;
+            background-size: 140% 100%;
+        } 
+        .card4 {
+            background-image: url("https://assets.codepen.io/489403/brazil.jpg");
+            background-repeat: no-repeat;
+            background-size: 140% 100%;
+        }
+
+        .ring:before,
+        .ring:after {
+            content: "";
+            padding: 0.7em 0.4em;
+            position: absolute;
+            left: 50%;
+            width: 115%;
+            top: 50%;
+            display: block;
+            border: 5px solid #50c9c3;
+            border-radius: 50%;
+            transition: transform 1s;
+            transform: translateX(-50%) translateY(-50%) rotate(50deg);
+        }
+
+        .ring:before {
+            border-color: rgb(235, 235, 235) rgb(235, 235, 235) rgba(0, 0, 0, 0)
+                rgba(0, 0, 0, 0);
+            z-index: -1;
+        }
+
+        .ring:after {
+            border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(235, 235, 235)
+                rgb(235, 235, 235);
+        }
+
+        p {
+            text-align: center;
+            position: absolute;
+            font-family: "Playfair Display";
+        }
+
+        .title {
+            font-size: 34px;
+            font-weight: 700;
+            transition: all 1s;
+            top: 0;
+        }
+
+        .para {
+            bottom: 0;
+            font-size: 16px;
+            font-family: "Raleway";
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+
+        .border {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            height: 260px;
+            width: 180px;
+            transition: border 1s;
+            overflow: hidden;
+        }
+
+        .slide {
+            height: 260px;
+            width: 180px;
+            position: absolute;
+            border: 1px solid black;
+            bottom: -270px;
+            background: rgba(0, 0, 0, 0.5);
+            transition: bottom 1s;
+            flex-direction: column;
+        }
+
+        .fa-plane {
+            font-size: 16px;
+        }
+
+    }
+        
+    </style>   
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="port.mp4" type="video/mp4">
+</video>
+<header>
+    <div class="topnav">
+       <b> 
+        <a href="#About Me">Hema</a>
+        <a href="#About Me">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a></b>
+        <a href="https://www.linkedin.com/in/hemavathi-k-a8475924b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="linkedin.png" alt="LinkedIn Logo"/></a>
+        <a href="https://github.com/hemhemaK"><img src="github.jfif" alt="GitHub Logo"/></a>
+    </div>  
+</header>
+  
+<img src="pic.jpeg" alt="Profile Picture">
+<div class="overlay" >
+    <h1>Hi, My name is Hemavathi K</h1>
+    <h2><font color="darkorange"><b>Entry-Level</b></font><font color="lightblue"><b> Software Developer</b></font></h2>
+    <h3><font color="white">I’m an Entry-Level Software Developer an MCA degree and 
+        focuses on Python, ML, Web Programming Languages. I delved deeper into coding, 
+        problem solving, and good team worker.</font>
+    </h3> 
+   <button type = "button" onclick = "downloadFile()"><b>Download CV</b></button>
+   <script>
+    function downloadFile() {
+       window.open("CV.hema.pdf")
+    }
+ </script>
+  </div>
+
+<div class="overlayaboutme" id="About Me">
+    <h1>About Me</h1>
+    <h3>Hello! I'm Hemavathi, a passionate and dedicated Computer Science student with a keen interest in
+     web development and IT. My journey into the world of technology began with a curiosity about how
+    websites are built and how technology shapes our daily lives. This curiosity quickly grew into a 
+    passion as I delved deeper into coding, problem-solving, and creating digital solutions.
+    <br><br>
+    I am currently pursuing my Final year master degree in MCA, where I have developed a solid foundation 
+    in various programming languages, including HTML, CSS, JavaScript, and PHP. My coursework has also 
+    provided me with hands-on experience in using backend frameworks like Xampp,Danjo,MangoDB and MySQL, 
+    as well as knowledge in database management.
+    </h3>
+
+    <div class="skills" id="hema">
+      <h1>SKILLS </h1>
+    </div> 
+    
+    <div class="contact" id="contact">
+      <h1>Contact Details</h1>
+      <h3><b> <i class="fa fa-home"></i> Phone No :</b> +91 8892882627</h3>
+      <h3><b><i class="fa fa-envelope-square"></i> Email :</b> hemavathikrishnan2627@gmail.com</h3>
+      <h3><b><i class="fa fa-edit"></i> Address :</b> #414, 8th F cross Nethaji Nagar Kp Agrahara, Magadi Rad ,Bangalore - 560023</h3>
+    </div> 
+    
+    <div class="project" id="projects">
+      <h1>Projects</h1>
+    </div> 
+    <div class="project1">
+      <h3><b> <i class="fa fa-shopping-basket"></i> E-commerce Website
+      </b></h3><h4>Developed a fully functional e-commerce website using HTML, CSS, JS, 
+                   PHP as a Frontend, Backend MySQL and Server XAMPP 
+                   incorporating features like user registration, product management, and 
+                   secure payment processing.
+    </h4>
+       </div>
+       <div class="project2">
+        <h3><b> <i class="fa fa-volume-up"></i> Job-Portal Website
+        </b></h3><h4>Developed a Job-Poratl website using HTML, CSS, JS, PHP and MySQL, 
+                     incorporating features like user registration, Apply Job, Tracking
+                     the application, Users can change there profile.
+                     Admin management collects all the application and manage the canditates.
+      </h4>
+         </div>
+         <div class="project3">
+          <h3><b> <i class="fa fa-handshake-o"></i> Cultivate-Hub Website
+          </b></h3><h4>“Cultivate Hub” is a comprehensive online platform dedicated to
+             serving the diverse needs of modern agriculture. Cultivate Hub offers a wealth of
+             resources and information to empower farmers and agribusiness professionals.
+        </h4>
+        </div>
+  </div>  
+
+<head>
+    <style>
+        .container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top:210%;
+}
+
+.panel {
+  height: 270px;
+  width: 190px;
+  position: relative;
+
+  &:hover {
+    .card {
+      filter: blur(1.5px);
+    }
+    .card1 {
+      background-size: 215% 135%;
+    }
+    .card2 {
+      background-size: 115% 115%;
+    }
+    .card3 {
+      background-size: 155% 115%;
+    }
+    .card4 {
+      background-size: 155% 115%;
+    }
+    .title {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .border {
+      border: 1px solid rgba(255, 255, 255, 1);
+    }
+    .slide {
+      bottom: 0px;
+    }
+    .ring:before,
+    .ring:after {
+      transform: translateX(-50%) translateY(-50%) rotate(310deg);
+    }
+  }
+}
+.ring,
+.card,
+.border,
+.slide,
+.line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ring {
+  color: #fffbf1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 170px;
+}
+
+.card {
+  background: #f0ead6;
+  position: relative;
+  transition: all 1s;
+  height: 270px;
+  width: 190px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.card1 {
+  background-image: url("https://assets.codepen.io/489403/brazil.jpg");
+  background-repeat: no-repeat;
+  background-size: 200% 120%;
+}
+
+.card2 {
+  background-image: url("https://assets.codepen.io/489403/belize.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card3 {
+  background-image: url("https://assets.codepen.io/489403/egypt.jpg");
+  background-repeat: no-repeat;
+  background-size: 140% 100%;
+}
+.card4 {
+  background-image: url("https://assets.codepen.io/489403/brazil.jpg");
+  background-repeat: no-repeat;
+  background-size: 140% 100%;
+}
+.ring:before,
+.ring:after {
+  content: "";
+  padding: 0.7em 0.4em;
+  position: absolute;
+  left: 50%;
+  width: 115%;
+  top: 50%;
+  display: block;
+  border: 5px solid #50c9c3;
+  border-radius: 50%;
+  transition: transform 1s;
+  transform: translateX(-50%) translateY(-50%) rotate(50deg);
+}
+
+.ring:before {
+  border-color: rgb(235, 235, 235) rgb(235, 235, 235) rgba(0, 0, 0, 0)
+    rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+.ring:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgb(235, 235, 235)
+    rgb(235, 235, 235);
+}
+
+p {
+  text-align: center;
+  position: absolute;
+  font-family: "Playfair Display";
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  transition: all 1s;
+  top: 0;
+}
+
+.para {
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.border {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 260px;
+  width: 180px;
+  transition: border 1s;
+  overflow: hidden;
+}
+
+.slide {
+  height: 260px;
+  width: 180px;
+  position: absolute;
+  border: 1px solid black;
+  bottom: -270px;
+  background: rgba(0, 0, 0, 0.5);
+  transition: bottom 1s;
+  flex-direction: column;
+}
+
+.fa-plane {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                top: 210%;
+            }
+
+            .panel {
+                margin-bottom: 200px;
+            }
+        }
+</style>
+</head>
+<footer>
+   
+    <div class="container">
+        <div class="panel">
+          <div class="ring">
+            <div class="card card1"></div>
+            <div class="border">
+              <p class="title">Web Programming</p>
+              <div class="slide">
+                <h6 class="para">Frontend</h6>
+                <div class="line">
+                  <h4 class="para">HTML5<br>CSS<br>JavaScript<br>PHP</h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ring">
+            <div class="card card2"></div>
+            <div class="border">
+              <p class="title">Programming Languages</p>
+              <div class="slide">
+                <div class="line">
+                  <h4 class="para">C<br>C++<br>Python<br>Java<br>ML<br>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><div class="panel">
+            <div class="ring">
+              <div class="card card3"></div>
+              <div class="border">
+                <p class="title">Database Backend</p>
+                <div class="slide">
+                   <div class="line">
+                    <h4 class="para">Mysql<br>Xampp server<br>Django<br>MangoDB</h4> 
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <div class="panel">
+          <div class="ring">
+            <div class="card card4"></div>
+            <div class="border">
+              <p class="title">Tools IDEs</p>
+              <div class="slide">
+                <div class="line">
+                  <h6 class="para">Microsoft Office<br>(Word, Excel, PowerPoint)<br>
+                  Visual Studio<br>Github</h6> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  </div>
+</footer>
+</body>
+</html>
